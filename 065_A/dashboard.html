@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Dashboard</h2>
+        
+        <div class="enrolment-display">
+            <p>Welcome, Student!</p>
+            <p><strong>Enrolment Number:</strong> <span id="displayEnrolment">-</span></p>
+        </div>
+        
+        <hr>
+        
+        <h3>Elective Subject Selection</h3>
+        <form id="electiveForm">
+            <p class="instruction">Select one elective subject:</p>
+            
+            <div class="elective-options">
+                <label class="elective-option">
+                    <input type="radio" name="elective" value="NLP" required>
+                    <span>NLP (Natural Language Processing)</span>
+                </label>
+                
+                <label class="elective-option">
+                    <input type="radio" name="elective" value="IoT">
+                    <span>IoT (Internet of Things)</span>
+                </label>
+                
+                <label class="elective-option">
+                    <input type="radio" name="elective" value="DevOps">
+                    <span>DevOps</span>
+                </label>
+            </div>
+            
+            <button type="submit">Save Selection</button>
+        </form>
+        
+        <p id="successMessage" class="success-message" style="display: none;">
+            Elective subject saved successfully!
+        </p>
+        
+        <p class="link-text">
+            <a href="login.html">Logout</a>
+        </p>
+    </div>
+    
+    <script>
+        // Display the enrolment number from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            var enrolment = localStorage.getItem('enrolmentNumber');
+            if (enrolment) {
+                document.getElementById('displayEnrolment').textContent = enrolment;
+            } else {
+                document.getElementById('displayEnrolment').textContent = 'Not logged in';
+            }
+        });
+        
+        // Handle elective form submission
+        document.getElementById('electiveForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var selectedElective = document.querySelector('input[name="elective"]:checked');
+            
+            if (selectedElective) {
+                localStorage.setItem('selectedElective', selectedElective.value);
+                
+                // Show success message
+                var successMsg = document.getElementById('successMessage');
+                successMsg.style.display = 'block';
+                successMsg.textContent = 'Elective subject "' + selectedElective.value + '" saved successfully!';
+                
+                // Optionally hide message after 3 seconds
+                setTimeout(function() {
+                    successMsg.style.display = 'none';
+                }, 3000);
+            } else {
+                alert('Please select an elective subject!');
+            }
+        });
+    </script>
+    
+    <style>
+        .enrolment-display {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .enrolment-display p {
+            margin: 5px 0;
+            color: #333;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .instruction {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .elective-options {
+            margin: 15px 0;
+        }
+        
+        .elective-option {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .elective-option:hover {
+            background-color: #f9f9f9;
+            border-color: #764ba2;
+        }
+        
+        .elective-option input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .elective-option span {
+            color: #333;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 15px;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</body>
+</html>

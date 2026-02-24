@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Management System</h2>
+        
+        <div class="welcome-message">
+            <p>Welcome to the Student Portal</p>
+            <p class="subtitle">Manage your profile and select your elective subjects</p>
+        </div>
+        
+        <div class="home-buttons">
+            <a href="login.html" class="btn">Login</a>
+            <a href="registration.html" class="btn">Register</a>
+        </div>
+        
+        <div class="features">
+            <h3>Features</h3>
+            <ul>
+                <li>Student Registration</li>
+                <li>Secure Login</li>
+                <li>Elective Subject Selection</li>
+                <li>Profile Management</li>
+            </ul>
+        </div>
+    </div>
+    
+    <style>
+        .welcome-message {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .welcome-message p {
+            margin: 10px 0;
+            color: #333;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #666 !important;
+        }
+        
+        .home-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+        
+        .btn:hover {
+            background-color: #5a3782;
+        }
+        
+        .features {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .features h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            color: #666;
+            text-align: center;
+        }
+        
+        .features li::before {
+            content: "✓ ";
+            color: #764ba2;
+        }
+    </style>
+</body>
+</html>
+
